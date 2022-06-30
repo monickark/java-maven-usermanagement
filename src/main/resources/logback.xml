@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- Log message format -->
+		<encoder>
+			<pattern>%d{[dd MMM yyyy HH:mm:ss]} [User Id: %X{userId} | IP: %X{ipAddress}]%n[%p] %c{5}| %m%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>applogs.log</file>
+		<append>false</append>
+		<encoder>
+			<pattern>%d{[dd MMM yyyy HH:mm:ss]} [User Id: %X{userId} | IP: %X{ipAddress}]%n[%p] %c{1}| %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- Setting the root level of logging to OFF -->
+	<root level="error" additivity="false">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</root>
+	<logger name="org.nikithra.aranidhi" level="all" additivity="false">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</logger>
+	<logger name="org.springframework" level="info" additivity="false">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</logger>
+</configuration>

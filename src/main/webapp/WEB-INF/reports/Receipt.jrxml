@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Receipt Generate" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isFloatColumnFooter="true" uuid="883b4d4e-0cf1-4b10-9de7-23eeab85a540">
+	<property name="template.type" value="columnar"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#000000" fontName="SansSerif" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="SansSerif" fontSize="14" isBold="true" pdfFontName="Helvetica"/>
+	<style name="Column header" isDefault="true" forecolor="#000000" fontName="SansSerif" fontSize="11" isBold="true" pdfFontName="Helvetica"/>
+	<style name="Detail" mode="Transparent" fontName="SansSerif" pdfFontName="Helvetica"/>
+	<style name="Row" mode="Transparent" fontName="SansSerif" pdfFontName="Helvetica">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#999999">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#CCCCCC">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#CCCCCC">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="3ac9a4f6-add4-46ee-8e7c-00d89367aa78"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Gritz Horizons Ltd 1\\Downloads\\spring-jasper-subreport-dual\\spring-jasper-subreport-dual\\src\\main\\resources\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="logo" class="java.lang.String"/>
+	<parameter name="accountType" class="java.lang.String"/>
+	<parameter name="serviceName" class="java.lang.String"/>
+	<parameter name="date" class="java.lang.String"/>
+	<parameter name="billNo" class="java.lang.String"/>
+	<parameter name="charityName" class="java.lang.String"/>
+	<parameter name="charityAddress1" class="java.lang.String"/>
+	<parameter name="charityAddress2" class="java.lang.String"/>
+	<parameter name="charityCity" class="java.lang.String"/>
+	<parameter name="charityState" class="java.lang.String"/>
+	<parameter name="charityCountry" class="java.lang.String"/>
+	<parameter name="charityPincode" class="java.lang.String"/>
+	<parameter name="name" class="java.lang.String"/>
+	<parameter name="address1" class="java.lang.String"/>
+	<parameter name="address2" class="java.lang.String"/>
+	<parameter name="city" class="java.lang.String"/>
+	<parameter name="state" class="java.lang.String"/>
+	<parameter name="country" class="java.lang.String"/>
+	<parameter name="pincode" class="java.lang.String"/>
+	<parameter name="charityMobileNo" class="java.lang.String"/>
+	<parameter name="charityEmailId" class="java.lang.String"/>
+	<parameter name="mobileNo" class="java.lang.String"/>
+	<parameter name="emailId" class="java.lang.String"/>
+	<parameter name="amtDonated" class="java.lang.String"/>
+	<group name="Group2">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/5)]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="84" splitType="Stretch">
+			<image>
+				<reportElement x="10" y="17" width="200" height="52" uuid="a10ba86c-9fca-4f58-b2ab-ba39f05588af"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement mode="Transparent" x="-15" y="80" width="588" height="1" uuid="7cb4e60b-f318-4ad8-ac89-43abf2e4db11"/>
+				<graphicElement>
+					<pen lineStyle="Dotted" lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="SubTitle" x="373" y="35" width="177" height="13" forecolor="#000000" uuid="0d08f15e-7fa7-421c-a8ec-f579d9ab6567"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Vadapalani, Chennai - 600 026,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="373" y="59" width="177" height="13" forecolor="#000000" uuid="e6a49d99-db43-458d-bf79-bb9aa6d21d8c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Mob: +91 99409 56349, Web: www.nikithra.org]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="373" y="23" width="177" height="13" forecolor="#000000" uuid="827af258-b361-4532-bd27-259ff380c92f"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[No.16/18, BLOCK-2, 9th Street, Kumaran Colony,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="373" y="47" width="177" height="13" forecolor="#000000" uuid="8481f773-98ff-472b-b24d-09c1725cdd76"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tamilnadu, India.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Title" mode="Transparent" x="373" y="7" width="177" height="17" isRemoveLineWhenBlank="true" uuid="3c70677a-529d-47e8-a8aa-aa076718c662"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Nikithra]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="346">
+			<rectangle>
+				<reportElement x="1" y="255" width="553" height="86" uuid="f49395ac-1e8f-40d6-92ca-15b77abfe9b1"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="87" y="317" width="100" height="20" uuid="87440f26-6750-41d6-9d33-00fdfca73cfe"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{accountType}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="8" y="317" width="83" height="20" uuid="f18af034-0257-459a-b9fa-3bb685f08bcb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Account Type :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="290" width="83" height="20" uuid="2e0f4300-e7a5-433c-be77-c802ba8fc817"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Service Name :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="88" y="290" width="282" height="20" uuid="6d425670-ffff-4b24-a564-042c64aea118"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{serviceName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="259" y="10" width="54" height="20" uuid="062678de-6b1f-4d9c-8566-c876f62cc376"/>
+				<textElement>
+					<font fontName="SansSerif" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Receipt]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="437" y="261" width="89" height="20" uuid="035362d2-918b-4347-86d5-bd1337475db2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="386" y="261" width="51" height="20" uuid="2d9ade1c-6840-4aac-8d8c-dc1bb88ed8c2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Bill Date :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="261" width="42" height="20" uuid="13eddc1c-d1b1-4bda-a69f-2773d65a9f32"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Bill No :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="261" width="100" height="20" uuid="0060f5da-9cfb-4a9d-94bb-d9971893c4a9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{billNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="346" y="317" width="99" height="20" uuid="07121582-246b-419c-8a27-e0a4d843c466"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Amount Donated :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="317" width="30" height="20" uuid="0060f5da-9cfb-4a9d-94bb-d9971893c4a9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{amtDonated}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="484" y="317" width="27" height="20" uuid="ab721453-e01b-40ec-9136-af95a2378803"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="438" y="317" width="19" height="20" uuid="82594e5c-c6ae-41f0-991d-80218efcd071"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Rs.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="1" y="45" width="258" height="195" uuid="e64ec5d8-0593-4cd1-9d3c-ed4f973ddaf8"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="17" y="93" width="220" height="20" uuid="861ab9bd-3904-4784-957c-fddbacdbfac3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{charityAddress1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="213" width="53" height="20" uuid="f3da98e0-c47e-4a3b-820b-5a97c205a51f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Email-Id :]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Column header" x="17" y="73" width="220" height="20" uuid="d62e1308-8d14-481d-b97b-56851a1b6a03"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{charityName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="113" width="220" height="20" uuid="86938fda-7edb-4fee-9b01-c3052c969af2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{charityAddress2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="8" y="51" width="101" height="20" uuid="b375711d-cef2-48eb-9fbc-00ef9797d5e6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<text><![CDATA[Charity Details]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="193" width="63" height="20" uuid="c4034cd9-cdbf-4b0b-abe3-568832a3ec3e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Mobile No :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="108" y="133" width="5" height="20" uuid="ebb218e7-9c0a-4440-961e-5c2a18fc9424"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="17" y="133" width="91" height="20" uuid="8889ac6b-1353-44c9-bb47-4d03ef44a1a0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{charityCity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="133" width="80" height="20" uuid="48be5ba9-8877-4e49-a165-57a6071eb737"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{charityPincode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="153" width="91" height="20" uuid="ec8fb0b6-7351-43b2-bef5-ca74f2d816a5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{charityState}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="173" width="91" height="20" uuid="1480fcf9-febd-43b5-802b-745c1ddc3d67"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{charityCountry}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="297" y="45" width="258" height="195" uuid="617df24e-6a18-4fcc-8fc8-44e4dd898549"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="313" y="213" width="53" height="20" uuid="2d8d8af2-23d5-41ca-80f5-e39e41adf81a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Email-Id :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="304" y="51" width="101" height="20" uuid="4e27e066-c531-492a-81b9-982d3c1fc018"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<text><![CDATA[Donar Details]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="193" width="63" height="20" uuid="1436389e-2534-43f2-95dc-c1c7332711b7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Mobile No :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="313" y="93" width="220" height="20" isRemoveLineWhenBlank="true" uuid="2af93e83-b0f3-4bbe-887a-b642e3a6ec36"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{address1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="313" y="153" width="91" height="20" isRemoveLineWhenBlank="true" uuid="6e253adc-dee8-410f-8e7a-431e4175749e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{state}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="313" y="133" width="91" height="20" isRemoveLineWhenBlank="true" uuid="58c2724d-2006-417e-812d-61db4c84c5d3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{city}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="409" y="133" width="80" height="20" isRemoveLineWhenBlank="true" uuid="e312600a-c2b1-428e-b932-e286524978a5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pincode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="76" y="193" width="90" height="20" uuid="9f86cebf-94f8-4344-815b-4445be62b95f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{charityMobileNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="68" y="213" width="150" height="20" uuid="97455596-de70-43b8-a180-d7e459ff3b33"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{charityEmailId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="364" y="213" width="150" height="20" uuid="ad689806-381f-4454-8a58-dc8d47125bb3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{emailId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="193" width="90" height="20" uuid="e4741c4f-50e2-4f10-a7fe-48ae487f46ac"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{mobileNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="404" y="133" width="5" height="20" uuid="adfa92bd-c266-4800-9817-c766441b2940"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Column header" x="313" y="73" width="220" height="20" uuid="ba263762-616b-4074-8c0c-f71f9495b9f4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="313" y="113" width="220" height="20" isRemoveLineWhenBlank="true" uuid="49eb0e54-110e-4675-946f-d70611ad7bd6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{address2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="313" y="173" width="91" height="20" isRemoveLineWhenBlank="true" uuid="080da5c0-13e0-4b22-ac56-8a88d1072014"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{country}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="85">
+			<staticText>
+				<reportElement x="430" y="32" width="100" height="20" uuid="6a9fbd0b-04df-47d3-bd3a-e4f428bcc15b"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Signature]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="55" width="518" height="20" uuid="f84375b0-a324-484f-b65f-37e23afae32c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[This is a computer generated receipt. For more information contact at support@aranidhi.com]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
